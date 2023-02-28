@@ -1,0 +1,37 @@
+{
+  "type": "module",
+  "name": "entregable",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node src/benchmark.js",
+    "watch": "nodemon src/main.js -e ejs,html,js,json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autocannon": "^7.10.0",
+    "bcrypt": "^5.1.0",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.5.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "faker": "^5.5.3",
+    "knex": "^0.95.9",
+    "log4js": "^6.8.0",
+    "minimist": "^1.2.7",
+    "mongoose": "^6.9.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.12",
+    "normalizr": "^3.6.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.6.1"
+  },
+  "description": ""
+}
