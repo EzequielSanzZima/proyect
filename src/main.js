@@ -1,5 +1,5 @@
 import express from "express";
-
+import session from "express-session";
 import { Server as HttpServer } from "http";
 import { Server as Socket } from "socket.io";
 import parseArgs from "minimist";
@@ -13,6 +13,7 @@ import addMensajesHandlers from "./routers/ws/mensajes.js";
 
 import objectUtils from "./utils/objectUtils.js";
 import { logger } from "./logger/logger.js";
+import config from "./config.js"
 
 import passport from "passport";
 import cookieParser from "cookie-parser";
@@ -58,7 +59,7 @@ app.use(passport.initialize());
 //--------------------------------------------
 // configuro el socket
 
-io.on("connection", async (socket) => {
+io.on("connection", async socket => {
   console.log(`Cliente conectado.`);
   addProductosHandlers(socket, io.sockets);
   addMensajesHandlers(socket, io.sockets);
@@ -74,12 +75,12 @@ app.use(express.static(__dirname + '/public'));
 
 app.set("view engine", "ejs");
 
-app.use(cookieParser());
-app.use(objectUtils.createOnMongoStore());
+app.use(cookieParser())
+// app.use(objectUtils.createOnMongoStore())
+app.use(session(config.session))
 
-// MIDDLEWARE PASSPORT
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize())
+app.use(passport.session())
 
 import auth from "./routers/web/auth.js";
 const sessions = auth;

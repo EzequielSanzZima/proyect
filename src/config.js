@@ -1,7 +1,18 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
+const sessionConfig = {
+    secret: process.env.MONGO_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    rolling: true,
+    cookie: {
+        maxAge: 60000
+    }
+};
+
 export default {
+    session: sessionConfig,
     mongoLocal: {
         client: 'mongodb',
         cnxStr: 'mongodb://localhost:27017'
