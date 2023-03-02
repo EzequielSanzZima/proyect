@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import UsuariosModel from '../../models/UsuariosModel.js'
+import UsuariosModel from '../../models/usuariosModel.js'
 import objectUtils from '../utils/objectUtils.js'
 
 

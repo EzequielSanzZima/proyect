@@ -9,7 +9,7 @@ function run(url) {
     url,
     connections: 100,
     duration: 20
-  })//en 20ms, 100 peticiones.
+  })
 
   autocannon.track(inst, { outputStream })
 

@@ -14,7 +14,7 @@ function createOnMongoStore() {
       ttl: 120,
       collectionName: "sessions",
     }),
-    secret: "EzequielSz",
+    secret: process.env.MONGO_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 60000 },
