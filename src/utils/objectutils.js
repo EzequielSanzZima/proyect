@@ -31,8 +31,6 @@ function isValidPassword(user, password) {
 
 export default { createOnMongoStore, createHash, isValidPassword };
 
-// module.exports = { createOnMongoStore, createHash, isValidPassword }
-
 export const asPOJO = (obj) => JSON.parse(JSON.stringify(obj));
 
 export const renameField = (record, from, to) => {
