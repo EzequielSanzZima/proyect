@@ -11,7 +11,6 @@ import productosApiRouter from "./routers/api/productos.js";
 import addProductosHandlers from "./routers/ws/productos.js";
 import addMensajesHandlers from "./routers/ws/mensajes.js";
 
-import objectUtils from "./utils/objectUtils.js";
 import { logger } from "./logger/logger.js";
 import config from "./config.js"
 
