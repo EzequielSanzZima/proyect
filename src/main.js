@@ -27,14 +27,16 @@ import os from "os";
 //--------------------------------------------
 // minimist
 
-const optionsM = {
-  default: { p: 8080, m: "fork" },
-  alias: { p: "port", m: "modo" },
-};
-const args = parseArgs(process.argv.slice(2), optionsM);
+// const optionsM = {
+//   default: { p: 8080, m: "fork" },
+//   alias: { p: "port", m: "modo" },
+// };
+// const args = parseArgs(process.argv.slice(2), optionsM);
 
-const PORT = args.p;
-const MODO = args.m;
+// const PORT = args.p;
+// const MODO = args.m;
+
+const PORT = process.env.PORT || 8080 
 
 //--------------------------------------------
 // instancio .env
@@ -100,19 +102,24 @@ app.use(homeWebRouter);
 // inicio el servidor
 
 //Cluster
-if (MODO === "cluster" && cluster.isPrimary) {
-  const numCpus = os.cpus().length;
-  logger.info(numCpus);
-  for (let i = 0; i < numCpus; i++) {
-    cluster.fork();
-  }
-  cluster.on("exit", (worker) => {
-    logger.error(`Process ${worker.process.pid} stopped working`);
-    cluster.fork();
-  });
-} else {
-  //express
-  app.listen(PORT, () =>
-    logger.info(`Server listening on port ${PORT} on process ${process.pid}`)
+// if (MODO === "cluster" && cluster.isPrimary) {
+//   const numCpus = os.cpus().length;
+//   logger.info(numCpus);
+//   for (let i = 0; i < numCpus; i++) {
+//     cluster.fork();
+//   }
+//   cluster.on("exit", (worker) => {
+//     logger.error(`Process ${worker.process.pid} stopped working`);
+//     cluster.fork();
+//   });
+// } else {
+//   //express
+//   app.listen(PORT, () =>
+//     logger.info(`Server listening on port ${PORT} on process ${process.pid}`)
+//   );
+// }
+
+
+app.listen(PORT, () =>
+    console.log(`Server listening on port ${PORT} on process ${process.pid}`)
   );
-}
