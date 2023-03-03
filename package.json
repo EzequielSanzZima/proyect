@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "src/main.js",
   "scripts": {
-    "start": "node src/main.js",
+    "start": "nodemon src/main.js",
     "test": "node src/benchmark.js",
     "watch": "nodemon src/main.js -e ejs,html,js,json"
   },
